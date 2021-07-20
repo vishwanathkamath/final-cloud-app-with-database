@@ -105,10 +105,10 @@ class Question(models.Model):
     # Foreign key to lesson
     # question text
     # question grade/mark
-    question = models.ForeignKey(Lesson, on_delete=models.CASCADE) 
+    lesson_id = models.ForeignKey(Lesson, on_delete=models.CASCADE) 
     question_text = models.TextField()
-    grade = models.IntegerField(max_length=3)
-    lesson_id = models.IntegerField(max_length=3)
+    grade = models.IntegerField(default=0)
+
 
     # <HINT> A sample model method to calculate if learner get the score of the question
     def is_get_score(self, selected_ids):
@@ -127,7 +127,9 @@ class Question(models.Model):
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
 class Choice(models.Model):
-    pass
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.TextField()
+    is_Correct = models.BooleanField(default=False)
 # <HINT> The submission model
 # One enrollment could have multiple submission
 # One submission could have multiple choices
