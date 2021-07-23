@@ -1,10 +1,10 @@
   applications:
-  - name: onlinecourse
+  - name: vkponlinecourse
     routes:
       - route: vkapon.eu-gb.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: onlinecourse-nginx
+  - name: vkponlinecourse-nginx
     routes:
       - route: vkapon.eu-gb.mybluemix.net/static
     memory: 128M
